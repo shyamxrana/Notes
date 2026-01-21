@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Search</title>
+    <!-- Add Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Simple loading animation */
+        .loader {
+            border-top-color: #3498db;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-black">Anything Image Search</h1>
+        
+        <!-- Search form -->
+        <div class="max-w-md mx-auto mb-8">
+            <form id="searchForm" class="flex gap-2">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search for images..." 
+                    class="flex-grow px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                >
+                <button 
+                    type="submit" 
+                    class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                    Search
+                </button>
+            </form>
+        </div>
+
+        <!-- Display area for search results -->
+        <div id="resultsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Images will be loaded here by JavaScript -->
+        </div>
+
+        <!-- Loading spinner (hidden by default) -->
+        <div id="loadingSpinner" class="hidden mt-8 text-center">
+            <div class="inline-block w-12 h-12 border-4 border-gray-300 rounded-full loader"></div>
+            <p class="mt-2 text-gray-600">Loading images...</p>
+        </div>
+
+        <!-- Error message (hidden by default) -->
+        <div id="errorMessage" class="hidden mt-8 p-4 bg-red-100 border border-red-400 text-red-700 rounded text-center">
+            <p>Oops! Something went wrong. Please try again.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    
